@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Account - Banking</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+    <a th:href="@{/dashboard}" class="btn btn-outline">← Back to Dashboard</a>
+</nav>
+
+<div class="container">
+    <h1>Open a New Account</h1>
+
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+    <form th:action="@{/accounts/open}" method="post" class="card">
+        <div class="form-group">
+            <label for="accountType">Account Type</label>
+            <select id="accountType" name="accountType" required>
+                <option value="" disabled selected>Select an account type</option>
+                <option th:each="type : ${accountTypes}"
+                        th:value="${type}"
+                        th:text="${#strings.replace(type.name(), '_', ' ')}">
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn">Open Account</button>
+    </form>
+</div>
+</body>
+</html>

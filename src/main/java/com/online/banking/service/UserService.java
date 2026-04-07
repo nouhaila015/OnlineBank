@@ -1,6 +1,8 @@
 package com.online.banking.service;
 
 import com.online.banking.entity.User;
+import com.online.banking.entity.enums.Status;
+import com.online.banking.entity.enums.UserRole;
 import com.online.banking.repositories.UserRepository;
 import com.online.banking.service.exception.UserException;
 import org.slf4j.Logger;
@@ -41,6 +43,8 @@ public class UserService implements UserDetailsService {
         }
         log.info("Registering user with email: {}", user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(UserRole.CUSTOMER);
+        user.setStatus(Status.ACTIVE);
         userRepository.save(user);
     }
 
