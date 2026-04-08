@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error - Banking</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Something went wrong</h1>
+    <p th:text="${'Error ' + status + ': ' + error}"></p>
+    <p th:if="${message}" th:text="${message}"></p>
+    <a th:href="@{/dashboard}" class="btn">Go to Dashboard</a>
+    &nbsp;
+    <a th:href="@{/login}" class="btn btn-outline">Go to Login</a>
+</div>
+</body>
+</html>

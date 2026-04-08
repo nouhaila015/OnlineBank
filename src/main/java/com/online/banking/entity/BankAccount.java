@@ -1,5 +1,6 @@
 package com.online.banking.entity;
 
+import com.online.banking.entity.enums.AccountType;
 import com.online.banking.entity.enums.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -46,4 +47,6 @@ public abstract class BankAccount {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<User> users;
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
 }

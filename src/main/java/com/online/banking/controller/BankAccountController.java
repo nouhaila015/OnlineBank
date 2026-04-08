@@ -104,18 +104,22 @@ public class BankAccountController {
                     .balance(BigDecimal.ZERO)
                     .openedDate(today)
                     .status(Status.ACTIVE)
+                    .accountType(AccountType.CURRENT)
                     .build();
             case SAVING -> SavingAccount.builder()
+                    .accountType(AccountType.SAVING)
                     .balance(BigDecimal.ZERO)
                     .openedDate(today)
                     .status(Status.ACTIVE)
                     .build();
             case CREDIT -> CreditAccount.builder()
+                    .accountType(AccountType.CREDIT)
                     .balance(BigDecimal.ZERO)
                     .openedDate(today)
                     .status(Status.ACTIVE)
                     .build();
             case FIXED_DEPOSIT -> FixedDepositAccount.builder()
+                    .accountType(AccountType.FIXED_DEPOSIT)
                     .balance(BigDecimal.ZERO)
                     .openedDate(today)
                     .status(Status.ACTIVE)
